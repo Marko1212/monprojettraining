@@ -7,7 +7,7 @@ import { AdminComponent } from './admin/admin.component';
 import { SessionAddFormComponent } from './session-add-form/session-add-form.component';
 import { FormsModule } from '@angular/forms';
 import { SessionEditFormComponent } from './session-edit-form/session-edit-form.component';
-import { FakeSessionItemService } from './fake-session-item-service';
+//import { FakeSessionItemService } from './fake-session-item-service';
 import { Routes, RouterModule } from '@angular/router';
 
 const adminRoutes: Routes = [
@@ -23,7 +23,7 @@ const adminRoutes: Routes = [
   },
 ];
 @NgModule({
-  imports: [RouterModule.forChild(adminRoutes)],
+  imports: [RouterModule.forChild(adminRoutes), CommonModule, FormsModule],
   declarations: [
     SessionItemComponent,
     SessionItemListComponent,
@@ -31,7 +31,7 @@ const adminRoutes: Routes = [
     SessionAddFormComponent,
     SessionEditFormComponent,
   ],
-  providers: [FakeSessionItemService],
+  providers: [],
   bootstrap: [AdminComponent],
 })
 export class AdminModule {}

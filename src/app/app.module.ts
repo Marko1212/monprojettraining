@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { SessionItemComponent } from './session-item/session-item.component';
 import { SessionItemListComponent } from './session-item-list/session-item-list.component';
@@ -31,6 +31,7 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
     BrowserModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
