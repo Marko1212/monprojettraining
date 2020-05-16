@@ -17,4 +17,7 @@ export class FakeSessionItemService {
       SESSIONITEMS.splice(index, 1);
     }
   }
+  getSession(id: number) {
+    return SESSIONITEMS[id - 1];
+  }
 }
