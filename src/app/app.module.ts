@@ -1,11 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+//import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { SessionItemComponent } from './session-item/session-item.component';
 import { SessionItemListComponent } from './session-item-list/session-item-list.component';
 import { InscriptionDisabledDirective } from './inscription-disabled-directive.directive';
 import { RouterModule, Routes } from '@angular/router';
+import { FakeSessionItemService } from './admin/fake-session-item-service';
+
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 const appRoutes: Routes = [
   {
@@ -14,7 +17,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'admin',
-    loadChildren: 'app/admin/admin.module#AdminModule',
+    loadChildren: './admin/admin.module#AdminModule',
   },
   { path: '', redirectTo: '/list', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
@@ -31,9 +34,9 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
     BrowserModule,
-    FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [FakeSessionItemService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
