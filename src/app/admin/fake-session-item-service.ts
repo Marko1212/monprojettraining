@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SESSIONITEMS } from './sessions';
+import { Session } from './session';
+
 @Injectable()
 export class FakeSessionItemService {
   constructor() {}
@@ -17,7 +19,13 @@ export class FakeSessionItemService {
       SESSIONITEMS.splice(index, 1);
     }
   }
-  getSession(id: number) {
-    return SESSIONITEMS[id - 1];
+  getSession(id: number): Session {
+    var currentSession: Session;
+
+    for (var i = 0; i < SESSIONITEMS.length; i++) {
+      currentSession = SESSIONITEMS[i];
+      if (currentSession.id == id) return currentSession;
+    }
+    return undefined;
   }
 }

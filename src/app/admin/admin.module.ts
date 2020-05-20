@@ -7,7 +7,7 @@ import { AdminComponent } from './admin/admin.component';
 import { SessionAddFormComponent } from './session-add-form/session-add-form.component';
 import { FormsModule } from '@angular/forms';
 import { SessionEditFormComponent } from './session-edit-form/session-edit-form.component';
-//import { FakeSessionItemService } from './fake-session-item-service';
+import { FakeSessionItemService } from './fake-session-item-service';
 import { Routes, RouterModule } from '@angular/router';
 
 const adminRoutes: Routes = [
@@ -31,7 +31,7 @@ const adminRoutes: Routes = [
     SessionAddFormComponent,
     SessionEditFormComponent,
   ],
-  providers: [],
+  providers: [FakeSessionItemService],
   bootstrap: [AdminComponent],
 })
 export class AdminModule {}
